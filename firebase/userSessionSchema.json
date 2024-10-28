@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "score": {
+      "type": "number",
+      "description": "Overall sentiment score"
+    },
+    "comparative": {
+      "type": "number",
+      "description": "Comparative score"
+    },
+    "calculation": {
+      "type": "array",
+      "description": "Array of objects containing words and their sentiment scores",
+      "items": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "The word used in the calculation"
+          },
+          "score": {
+            "type": "number",
+            "description": "Sentiment score of the word"
+          }
+        },
+        "required": ["word", "score"]
+      }
+    },
+    "tokens": {
+      "type": "array",
+      "description": "Array of tokens from the analyzed text",
+      "items": {
+        "type": "string",
+        "description": "Individual word tokens from the text"
+      }
+    },
+    "positive": {
+      "type": "array",
+      "description": "Array of positive words found in the text",
+      "items": {
+        "type": "string"
+      }
+    },
+    "negative": {
+      "type": "array",
+      "description": "Array of negative words found in the text",
+      "items": {
+        "type": "string"
+      }
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of when the sentiment analysis was performed"
+    }
+  },
+  "required": ["score", "comparative", "calculation", "tokens", "positive", "negative", "timestamp"]
+}
